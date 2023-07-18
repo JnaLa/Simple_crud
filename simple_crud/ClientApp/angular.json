@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "simple_crud"
+  "defaultProject": "simple_crud",
+  "cli": {
+    "analytics": false
+  }
 }
