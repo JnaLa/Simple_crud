@@ -1,3 +1,64 @@
-<p>add-disc works!</p>
+<div>
+  <h3>Add disc</h3>
+  <form (ngSubmit)="addDisc()">
+    <label>Enter disc name</label>
+    <input [(ngModel)]="discName" type="text" name="discName" />
+    <br />
+    <label>Enter disc type</label>
+    <input [(ngModel)]="discType" type="text" name="discType" />
 
-<h3> asdasdasd</h3>
+    <button type="submit">ADD!</button>
+  </form>
+</div>
+
+<div>
+  <h3>Add dis2222c</h3>
+  <form [formGroup]="discsForm" (ngSubmit)="addDisc2()">
+    <label>Enter disc name</label>
+    <input formControlName="discName2" type="text" name="discName2" />
+    <br />
+    <label>Enter disc type</label>
+    <input formControlName="discType2" type="text" name="discType2" />
+    <button type="submit">ADD!</button>
+  </form>
+</div>
+
+
+<div>
+  <h4>Added discs222</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Kiekon nimi</th>
+        <th>Kiekon tyyppi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let disc of addedDiscs2">
+        <td>{{disc.discName2}}</td>
+        <td>{{disc.discType2}}</td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
+
+
+<div>
+  <h4>Added discs</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Kiekon nimi</th>
+        <th>Kiekon tyyppi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let disc of addedDiscs">
+        <td>{{disc.name}}</td>
+        <td>{{disc.type}}</td>
+      </tr>
+    </tbody>
+    
+  </table>
+</div>
