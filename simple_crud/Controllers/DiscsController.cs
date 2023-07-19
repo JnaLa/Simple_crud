@@ -1,13 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using simple_crud.Data;
 
 namespace simple_crud.Controllers
 {
     [ApiController]
+    [Route("/api/[controller]")]
     public class DiscsController : Controller
     {
-        public IActionResult Index()
+        private readonly SimpleCrudDbContext _simpleCrudDbContext;
+        public DiscsController(SimpleCrudDbContext simpleCrudDbContext)
         {
-            return View();
+            _simpleCrudDbContext = simpleCrudDbContext;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllDiscs()
+        {
+            var discs = await _simpleCrudDbContext.Discs.ToListAsync();
+
+            return Ok(discs);
         }
     }
 }

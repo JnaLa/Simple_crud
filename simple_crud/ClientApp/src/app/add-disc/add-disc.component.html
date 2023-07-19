@@ -1,14 +1,14 @@
 <div>
   <h3>Add disc</h3>
-  <form (ngSubmit)="addDisc()">
+  <div>
     <label>Enter disc name</label>
     <input [(ngModel)]="discName" type="text" name="discName" />
     <br />
     <label>Enter disc type</label>
     <input [(ngModel)]="discType" type="text" name="discType" />
 
-    <button type="submit">ADD!</button>
-  </form>
+    <button (click)="addDisc()">ADD!</button>
+  </div>
 </div>
 
 <div>
