@@ -1,8 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using simple_crud.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<SimpleCrudDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SimpleCrudConnectionString")));
 
 var app = builder.Build();
 
